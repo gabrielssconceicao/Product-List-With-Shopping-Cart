@@ -1,7 +1,9 @@
 <script setup lang="ts">
-
+import ProductListView from "@/views/ProductListView.vue";
 </script>
 
 <template>
-  <h1>Hi</h1>
+  <section>
+    <ProductListView />
+  </section>
 </template>
