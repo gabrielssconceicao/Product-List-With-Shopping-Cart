@@ -3,6 +3,8 @@
 import ProductImage from './ProductImageComponent.vue';
 import AddToCart from "./AddToCartComponent.vue";
 import QuantityControll from "./QuantityControllComponent.vue";
+import { useCounterStore } from '@/stores/cart'
+const counterStore = useCounterStore()
 type Product = {
   name: string
   category: string
@@ -11,6 +13,7 @@ type Product = {
     desktop: string
     tablet: string
     mobile: string
+    thumbnail: string
   }
 }
 
@@ -20,9 +23,19 @@ interface ProductProps {
 
 const props = defineProps<ProductProps>()
 
-const handleClick = () => {
-  console.log('clicked')
-  console.log(props.product)
+
+const handleIncreaseProductQuantityToCart = () => {
+  const cartProduct = {
+    name: props.product.name,
+    price: props.product.price,
+    quantity: 1,
+    image: props.product.image.thumbnail
+  }
+
+  counterStore.incrementQuantity(cartProduct)
+}
+const handleDecreaseProductQuantityToCart = () => {
+  counterStore.decreaseQuantity(props.product.name)
 }
 </script>
 <template>
@@ -30,8 +43,11 @@ const handleClick = () => {
     <ProductImage :desktop="props.product.image.desktop" :tablet="props.product.image.tablet"
       :mobile="props.product.image.mobile" :alt="props.product.name" />
     <div class="flex-1 flex flex-col">
-      <AddToCart :onClick="handleClick" />
-      <QuantityControll :quantity="1" :increase="() => { }" :decrease="() => { }" />
+
+      <AddToCart :onClick="handleIncreaseProductQuantityToCart"
+        v-if="!counterStore.isProductOnCart(props.product.name)" />
+      <QuantityControll v-else :quantity="counterStore.getProductQuantity(props.product.name)"
+        :increase="handleIncreaseProductQuantityToCart" :decrease="handleDecreaseProductQuantityToCart" />
       <div class="space-y-2">
         <p class="text-xs text-rose-500">{{ props.product.category }}</p>
         <p class="text-sm font-semibold text-rose-900">{{ props.product.name }}</p>
