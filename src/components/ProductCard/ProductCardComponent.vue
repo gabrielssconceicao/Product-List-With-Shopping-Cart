@@ -3,9 +3,9 @@ import { defineProps } from 'vue';
 import ProductImage from './ProductImageComponent.vue';
 import AddToCart from './AddToCartComponent.vue';
 import QuantityControl from './QuantityControlComponent.vue';
-import { useCounterStore } from '@/stores/cart';
+import { useCartStore } from '@/stores/cart';
 
-const counterStore = useCounterStore();
+const cartStore = useCartStore();
 
 type Product = {
   name: string;
@@ -33,13 +33,13 @@ const handleIncreaseProductQuantityToCart = () => {
     image: props.product.image.thumbnail
   };
 
-  counterStore.incrementQuantity(cartProduct);
+  cartStore.incrementQuantity(cartProduct);
 };
 
 const handleDecreaseProductQuantityToCart = () => {
 
 
-  counterStore.decreaseQuantity(props.product.name);
+  cartStore.decreaseQuantity(props.product.name);
 };
 </script>
 
@@ -47,11 +47,10 @@ const handleDecreaseProductQuantityToCart = () => {
   <div class="flex flex-col min-[600px]:w-[200px] min-[820px]:w-[230px]">
     <ProductImage :desktop="props.product.image.desktop" :tablet="props.product.image.tablet"
       :mobile="props.product.image.mobile" :alt="props.product.name"
-      :isOnCart="counterStore.isProductInCart(props.product.name)" />
+      :isOnCart="cartStore.isProductInCart(props.product.name)" />
     <div class="flex-1 flex flex-col">
-      <AddToCart v-if="!counterStore.isProductInCart(props.product.name)"
-        :onClick="handleIncreaseProductQuantityToCart" />
-      <QuantityControl v-else :quantity="counterStore.getProductQuantity(props.product.name)"
+      <AddToCart v-if="!cartStore.isProductInCart(props.product.name)" :onClick="handleIncreaseProductQuantityToCart" />
+      <QuantityControl v-else :quantity="cartStore.getProductQuantity(props.product.name)"
         :increase="handleIncreaseProductQuantityToCart" :decrease="handleDecreaseProductQuantityToCart" />
       <div class="space-y-2">
         <p class="text-xs text-rose-500">{{ props.product.category }}</p>
