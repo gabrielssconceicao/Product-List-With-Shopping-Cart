@@ -28,7 +28,7 @@ export const useCounterStore = defineStore('cart', () => {
     }
   }
 
-  const isProductOnCart = computed(() => {
+  const isProductInCart = computed(() => {
     return (productName: string) => {
       return cart.value.some((i) => i.name === productName)
     }
@@ -41,7 +41,7 @@ export const useCounterStore = defineStore('cart', () => {
 
   return {
     incrementQuantity,
-    isProductOnCart,
+    isProductInCart,
     getProductQuantity,
     decreaseQuantity
   }
