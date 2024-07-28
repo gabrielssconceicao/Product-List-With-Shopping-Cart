@@ -4,7 +4,7 @@ import CartItem from '@/components/CartItems/CartItemComponent.vue';
 const cartStore = useCartStore();
 </script>
 <template>
-  <aside class="bg-white px-10 py-4 rounded-xl max-md:self-center max-md:w-full">
+  <aside class="bg-white px-10 py-4 rounded-xl max-md:self-center max-md:w-full h-fit mx-auto min-w-96">
     <h2 class="font-red-hat-text font-bold text-red text-2xl">Your Cart ({{ cartStore.cartItems }})</h2>
     <div class="flex flex-col justify-center items-center space- y-4" v-if="!cartStore.cartItems">
       <div class="flex-1">
@@ -24,7 +24,9 @@ const cartStore = useCartStore();
       </div>
 
       <div class="flex justify-center py-8">
-        <button class="bg-red px-10 py-3 rounded-3xl text-white w-full hover:bg-rose-900"> Confirm Order </button>
+        <button
+          class="bg-red px-10 py-3 rounded-3xl text-white w-full hover:bg-rose-900 transition-colors duration-200">
+          Confirm Order </button>
       </div>
     </div>
   </aside>
