@@ -25,11 +25,11 @@ export default {
       },
       fontFamily: {
         'red-hat-text': ['Red Hat Text', 'sans-serif']
+      },
+      screens: {
+        mobile: '375px',
+        desktop: '1440px'
       }
-    },
-    screens: {
-      mobile: '375px',
-      desktop: '1440px'
     }
   },
   plugins: []

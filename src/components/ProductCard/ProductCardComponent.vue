@@ -44,7 +44,7 @@ const handleDecreaseProductQuantityToCart = () => {
 </script>
 
 <template>
-  <div class="flex flex-col max-mobile:w-full">
+  <div class="flex flex-col min-[600px]:w-[200px] min-[820px]:w-[230px]">
     <ProductImage :desktop="props.product.image.desktop" :tablet="props.product.image.tablet"
       :mobile="props.product.image.mobile" :alt="props.product.name"
       :isOnCart="counterStore.isProductInCart(props.product.name)" />
