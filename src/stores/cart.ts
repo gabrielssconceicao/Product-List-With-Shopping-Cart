@@ -42,6 +42,10 @@ export const useCartStore = defineStore('cart', () => {
     return cart.value.reduce((a, b) => a + b.quantity, 0);
   });
 
+  const cartTotal = computed(() => {
+    return cart.value.reduce((a, b) => a + b.price * b.quantity, 0).toFixed(2);
+  });
+
   const getProductQuantity = (productName: string) => {
     const product = cart.value.find((i) => i.name === productName);
     return product ? product.quantity : 1;
@@ -55,5 +59,6 @@ export const useCartStore = defineStore('cart', () => {
     cartItems,
     cart,
     removeProductFromCart,
+    cartTotal,
   };
 });
