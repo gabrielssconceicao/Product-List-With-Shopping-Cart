@@ -7,19 +7,20 @@ const props = defineProps<ConfirmOrderItemProps>()
 </script>
 
 <template>
-  <div class="flex flex-row items-stretch gap-3 px-2
+  <div class="flex flex-row items-stretch gap-3 px-2 bg-rose-100 border-b-4 border-gray-200
   ">
     <div class="w-20">
       <img :src="props.product.image" :alt="`${props.product.name} thumbnail`">
     </div>
-    <div class="flex-1 flex-grow bg-red">
-      <p>{{ props.product.name }}</p>
-      <div>
-        <p>x{{ props.product.quantity }}</p>
-        <p>${{ props.product.price.toFixed(2) }}</p>
+    <div class="flex-1 flex-grow flex flex-col ">
+      <p class=" px-2 py-1"> {{ props.product.name }}</p>
+      <div class="flex flex-1 items-center px-3 flex-row gap-3 ">
+        <p class="text-red font-bold">x{{ props.product.quantity }}</p>
+        <p class="text-rose-500 ">${{ props.product.price.toFixed(2) }}</p>
       </div>
     </div>
-    <p>${{ (props.product.price * props.product.quantity).toFixed(2) }}</p>
+    <p class="font-bold text-2xl inline-flex items-center">${{ (props.product.price * props.product.quantity).toFixed(2)
+      }}</p>
   </div>
 
 

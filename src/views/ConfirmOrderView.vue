@@ -5,6 +5,7 @@ const cartStore = useCartStore();
 const emit = defineEmits(['closeConfirmOrderModal']);
 
 const handleCloseConfirmOrderModal = () => {
+  cartStore.clearCart();
   emit('closeConfirmOrderModal');
 }
 </script>
@@ -25,9 +26,15 @@ const handleCloseConfirmOrderModal = () => {
         <p class="text-rose-500">Hope you enjoy your food</p>
       </div>
 
-      <div class="flex-1 overflow-y-auto space-y-1 py-1">
+      <div class="flex-1 overflow-y-auto space-y-1 my-3">
         <ConfirmOrderItem v-for="(product, i) in cartStore.cart" :key="i" :product="product" />
       </div>
+
+      <p class="font-red-hat-text flex justify-between py-5 px-10">
+
+        <span class="text-lg"> Order Total</span>
+        <span class="text-3xl font-bold text-rose-900">${{ cartStore.cartTotal }}</span>
+      </p>
 
 
       <button @click="handleCloseConfirmOrderModal"
