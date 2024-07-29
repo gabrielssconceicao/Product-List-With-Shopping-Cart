@@ -8,7 +8,7 @@ const props = defineProps<QuantityControllProps>()
 </script>
 <template>
   <div
-    class="self-center flex flex-row  gap-6 px-4 py-2 max-mobile:min-w-[50%] max-mobile:w-8/12  rounded-full border-2 bg-red  -translate-y-6">
+    class="self-center flex flex-row  gap-6 px-6 py-2 max-mobile:min-w-[50%] max-mobile:w-8/12  rounded-full border-2 bg-red  -translate-y-6">
     <button @click="props.decrease">
       <img src="../../assets/images/icon-decrement-quantity.svg" alt="decrease" />
     </button>

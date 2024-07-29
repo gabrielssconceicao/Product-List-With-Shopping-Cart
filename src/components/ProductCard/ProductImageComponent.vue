@@ -21,7 +21,7 @@ const props = defineProps<ImageProps>()
 
     <source media="(max-width: 375px)" :srcset="props.mobile" />
     <img :src="props.tablet" :alt="`${props.alt} image`"
-      class="max-mobile:w-full mobile:max-w-[200px] rounded-lg border-2 transition-colors duration-200 self-center"
+      class="max-mobile:w-full mobile:max-w-[200px] rounded-lg border-2 transition-colors duration-200 self-center mx-auto"
       :class="borderColor" />
   </picture>
 </template>

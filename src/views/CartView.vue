@@ -2,6 +2,13 @@
 import { useCartStore } from '@/stores/cart';
 import CartItem from '@/components/CartItems/CartItemComponent.vue';
 const cartStore = useCartStore();
+
+const emit = defineEmits(['openConfirmOrderModal']);
+
+const handleOpenConfirmOrderModal = () => {
+  emit('openConfirmOrderModal');
+}
+
 </script>
 <template>
   <aside class="bg-white px-10 py-4 rounded-xl max-md:self-center max-md:w-full h-fit mx-auto min-w-96">
@@ -24,7 +31,7 @@ const cartStore = useCartStore();
       </div>
 
       <div class="flex justify-center py-8">
-        <button
+        <button @click="handleOpenConfirmOrderModal"
           class="bg-red px-10 py-3 rounded-3xl text-white w-full hover:bg-rose-900 transition-colors duration-200">
           Confirm Order </button>
       </div>
