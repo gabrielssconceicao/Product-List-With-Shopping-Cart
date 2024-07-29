@@ -14,7 +14,7 @@ const handleCloseConfirmOrderModal = () => {
   <section class="fixed top-0 bg-black/50 w-full h-full space-y-5">
 
     <section
-      class="bg-white absolute flex flex-col max-md:w-full max-md:bottom-0 max-md:rounded-t-2xl px-3 py-5 max-md:h-[90%] font-red-hat-text shadow-lg md:top-1/2  md:left-1/2  md:-translate-x-1/2 md:-translate-y-1/2 md:h-[70vw] md:w-[70vh] md:rounded-xl">
+      class="bg-white absolute flex flex-col max-md:w-full max-md:bottom-0 max-md:rounded-t-2xl px-3 py-5 max-md:h-[90%] font-red-hat-text shadow-lg md:top-1/2  md:left-1/2  md:-translate-x-1/2 md:-translate-y-1/2 md:h-[70vh] md:w-[70vw] md:max-w-[1024px] md:rounded-xl">
       <div class="space-y-5">
         <div>
           <img src="../assets/images/icon-order-confirmed.svg" alt="order-confirmed">
@@ -26,7 +26,7 @@ const handleCloseConfirmOrderModal = () => {
         <p class="text-rose-500">Hope you enjoy your food</p>
       </div>
 
-      <div class="flex-1 overflow-y-auto space-y-1 my-3">
+      <div class="max-md:flex-1 overflow-y-auto space-y-1 my-3">
         <ConfirmOrderItem v-for="(product, i) in cartStore.cart" :key="i" :product="product" />
       </div>
 
