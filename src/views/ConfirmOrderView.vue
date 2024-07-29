@@ -14,7 +14,7 @@ const handleCloseConfirmOrderModal = () => {
   <section class="fixed top-0 bg-black/50 w-full h-full space-y-5">
 
     <section
-      class="bg-white absolute flex flex-col mobile:w-full mobile:bottom-0 mobile:rounded-t-2xl px-3 py-5 h-[90%] font-red-hat-text shadow-lg">
+      class="bg-white absolute flex flex-col max-md:w-full max-md:bottom-0 max-md:rounded-t-2xl px-3 py-5 max-md:h-[90%] font-red-hat-text shadow-lg md:top-1/2  md:left-1/2  md:-translate-x-1/2 md:-translate-y-1/2 md:h-[70vw] md:w-[70vh] md:rounded-xl">
       <div class="space-y-5">
         <div>
           <img src="../assets/images/icon-order-confirmed.svg" alt="order-confirmed">
